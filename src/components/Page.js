@@ -15,6 +15,8 @@ export default function Page(props) {
                 <p style={style.p}>{props.content}</p>
                 <img src={props.img} style={style.img}  />
             </div>
+            <div></div>
         </div>
+
     )
 }
