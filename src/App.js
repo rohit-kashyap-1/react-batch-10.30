@@ -1,31 +1,39 @@
 import logo from './logo.svg';
 import './App.css';
-
-import aboutImg from './assets/images/about.webp'
-import contactImg from './assets/images/contact.jpg'
-import servicesImg from './assets/images/services.jpg'
-
-import Header from './components/Header';
-import Counter from './components/Counter';
-import Form from './components/Form';
-import Products from './components/Products';
-
-// components: Class based, Function Based
+import { useState } from 'react';
 
 function App() {
+  let  [checked, setCheck] =  useState(true)
+  let [heading, abc] = useState()
 
+  let [display,setDisplay] = useState(false)
+
+  // /useState :  function abc(1){heading = 1}
+
+  //Re render : 
+ 
+
+  function handleCheck(event){
+  let val =  event.target.value
+  let sendCheck = false
+  if(checked){
+    setDisplay(false)
+    
+    setCheck(false)
+  }else{
+    setCheck(true)
+    setDisplay(true)
+    
+  }
+  
+//api
+  }
   return (
     <div className="App">
-      <div className='container'>
-       {/* <About />
-       <Contact />
-       <Services /> */}
-      {/* props*/ } 
-       <Header data_class="active"  />
-       <Counter />
-       <Form title="Simple Single Input Form" />
-       <Products />
-      
+      <h1>{heading}</h1>
+      <div className='container'>   
+        <input type='checkbox' value={"Rohit"} checked={(checked==1)?true:false} onChange={handleCheck}  />
+        {(display==false)?'':'hello'}
       </div>
     </div>
   );
