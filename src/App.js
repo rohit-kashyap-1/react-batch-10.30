@@ -1,27 +1,47 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
-import Button from './components/Button';
 
-import ConditionalComponent1 from './components/ConditionalComponent1';
-
-
+import Item from './components/Item';
 function App() {
+  let [data,setData] = useState({})
+  let [name,setName] =  useState('')
+  let [email,setEmail] = useState('')
+
 
 
   function handleClick(){
-    console.log('Button Click 1')
+    setData('helllo')
   }
-  function handleClick2(){
-    console.log('REgister')
+
+  function handleName(event){
+    setName(event.target.value)
+  }
+  function handleEmail(event){
+    setEmail(event.target.value)
+  }
+
+  function handleSubmit(event){
+    event.preventDefault()
+
+    console.log(name)
+    console.log(email)
+   // setData([name,email])
+
+   setData({name:name,email:email})
+
+
+   // axios.post('',{name:name,email:email})
+
   }
   return (
     <div className="App">
-      {/* <Button title={"Read More"} action={handleClick} />
-      <Button title={"REgister"} action={handleClick2} />
-      <Button title={"Empty button"} /> */}
-      <ConditionalComponent1 condition={true} />
-
+      <Item data={data} />
+      <form onSubmit={handleSubmit}>
+        <input type='text' value={name} onChange={handleName} placeholder='Enter Name' />
+        <input type='email' value={email} onChange={handleEmail} placeholder='Enter email' />
+        <button>Submit</button>
+      </form>
     </div>
   );
 }
