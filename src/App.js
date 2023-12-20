@@ -3,8 +3,11 @@ import './App.css';
 import { useState } from 'react';
 import Button from './components/Button';
 
+import ConditionalComponent1 from './components/ConditionalComponent1';
+
 
 function App() {
+
 
   function handleClick(){
     console.log('Button Click 1')
@@ -14,9 +17,11 @@ function App() {
   }
   return (
     <div className="App">
-      <Button title={"Read More"} action={handleClick} />
+      {/* <Button title={"Read More"} action={handleClick} />
       <Button title={"REgister"} action={handleClick2} />
-      <Button title={"Empty button"} />
+      <Button title={"Empty button"} /> */}
+      <ConditionalComponent1 condition={true} />
+
     </div>
   );
 }
