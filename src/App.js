@@ -2,38 +2,32 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 
+import ChildComponent from './components/ChildComponent';
+import DefaultForm from './components/DefaultForm';
+
 function App() {
-  let  [checked, setCheck] =  useState(true)
-  let [heading, abc] = useState()
+  let [registerd, setRegister] = useState(true)
 
-  let [display,setDisplay] = useState(false)
+  function handleRegister(){
+    if(registerd==true){
+      setRegister(false)
+    }else{
+      setRegister(true)
+    }
 
-  // /useState :  function abc(1){heading = 1}
-
-  //Re render : 
- 
-
-  function handleCheck(event){
-  let val =  event.target.value
-  let sendCheck = false
-  if(checked){
-    setDisplay(false)
-    
-    setCheck(false)
-  }else{
-    setCheck(true)
-    setDisplay(true)
-    
+    console.log(registerd)
   }
-  
-//api
-  }
+
   return (
     <div className="App">
-      <h1>{heading}</h1>
-      <div className='container'>   
-        <input type='checkbox' value={"Rohit"} checked={(checked==1)?true:false} onChange={handleCheck}  />
-        {(display==false)?'':'hello'}
+      {/* <ChildComponent title={"Login Form"} parap={"hello world"} /> */}
+      <div className='container'>
+
+        <div className='w-25'>
+          <DefaultForm  registerd={registerd} />
+        </div>
+        <button onClick={handleRegister} className='btn btn-dark'>Login</button>
+        <button onClick={handleRegister} className='btn btn-dark'>Register</button>
       </div>
     </div>
   );
